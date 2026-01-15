@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// 1. Import the logo from your source folder
+import medeLogo from './assets/logo.png';
 import { 
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
   AreaChart, Area, PieChart, Pie, Cell, Legend 
@@ -31,12 +33,22 @@ export default function App() {
   return (
     <div className="flex h-screen bg-gray-50 font-sans text-slate-900">
       {/* SIDEBAR NAVIGATION */}
-      <aside className="w-64 bg-slate-900 text-white flex flex-col shadow-xl">
+{/*}        <aside className="w-64 bg-slate-900 text-white flex flex-col shadow-xl">*/}
+        <aside className="w-64 bg-slate-900 text-white flex flex-col shadow-xl">
         <div className="p-6 flex items-center gap-3 border-b border-slate-800">
-          <div className="bg-emerald-500 p-2 rounded-lg text-white">
+            {/* If you have the image file in your /public folder */}
+            <img 
+              src={medeLogo}
+              alt="MedeAnalytics Logo" 
+              className="h-10 w-auto object-contain"
+            />
+            {/*<span className="font-bold text-lg tracking-tight">MedeAnalytics</span>*/}
+          </div>        
+          <div className="p-6 flex items-center gap-3 border-b border-slate-800">
+          {/*<div className="bg-emerald-500 p-2 rounded-lg text-white">
             <HeartPulse size={24} />
-          </div>
-          <span className="font-bold text-xl tracking-tight uppercase">MediMetrics</span>
+          </div>*/}
+          <span className="font-bold text-xl tracking-tight">Choose a Report</span>
         </div>
         
         <nav className="flex-1 px-4 py-6 space-y-2">
@@ -50,7 +62,7 @@ export default function App() {
             onClick={() => setActiveTab('quality')}
             className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all ${activeTab === 'quality' ? 'bg-emerald-600 shadow-lg' : 'hover:bg-slate-800 text-slate-400 hover:text-white'}`}
           >
-            <ShieldCheck size={20} /> 2. Quality & Chronic
+            <ShieldCheck size={20} /> 2. Quality & Chronic Conditions
           </button>
           
           <div className="pt-6 pb-2 px-3 text-xs font-bold text-slate-500 uppercase tracking-widest">Support</div>
